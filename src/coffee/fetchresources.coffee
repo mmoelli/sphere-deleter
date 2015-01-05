@@ -3,18 +3,17 @@ Promise = require 'bluebird'
 
 class FetchResources
 
-  constructor: (logger, options = {}) ->
+  constructor: (@logger, options = {}) ->
     @client = new SphereClient options
 
   run: (resource, hours) ->
-    console.log resource + " " + hours
-    new Promise (reject, resolve) =>
+    new Promise (resolve, reject) =>
       @client[resource].all().last("#{hours}h").fetch()
       .then (resources) ->
-        console.log "Fetched Resources: " + resources
+        console.log "Fetched Resources: %j", resources.body.results
         resolve resources.body.results
-      .catch (err) ->
-        logger.error err, "Problems on fetching the resources."
+      .catch (err) =>
+        @logger.error err, "Problems on fetching the resources."
         reject err
       .done()
 

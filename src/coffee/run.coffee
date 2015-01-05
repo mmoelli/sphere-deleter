@@ -55,7 +55,6 @@ ProjectCredentialsConfig.create()
 
   fetchResources.run(argv.resource, argv.deleteHours)
   .then (result) ->
-    console.log "Start deletion"
     deleteResources.run(result)
   .catch (err) ->
     logger.error err, "Problems on deleting the whole list."
