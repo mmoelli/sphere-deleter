@@ -8,9 +8,11 @@ class DeleteResources
     @resource = object
 
   run: (result) ->
-    console.log "Start deletion of " + result.length + " item(s)."
-    for item in result
-      @deleteItem item
+    if result.length
+      console.log "Start deletion of " + result.length + " item(s)."
+      for item in result
+        @deleteItem item
+    else @deleteItem result
 
   deleteItem: (item) ->
     @client[@resource].byId(item.id).delete(item.version)
