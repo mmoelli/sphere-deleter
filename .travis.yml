@@ -5,6 +5,7 @@ before_script:
   - npm install -g grunt-cli
   - ./create_config.sh
 script:
+  - grunt build
   - node node_modules/sphere-ipinfo-mashup/lib/run.js --projectKey ${SPHERE_PROJECT_KEY} --clientId ${SPHERE_CLIENT_ID}  --clientSecret ${SPHERE_CLIENT_SECRET} --ipAddress 8.8.8.8
   - node lib/run.js --projectKey ${SPHERE_PROJECT_KEY} --clientId ${SPHERE_CLIENT_ID}  --clientSecret ${SPHERE_CLIENT_SECRET} --resource carts --deleteHours 1
 env:
