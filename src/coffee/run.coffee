@@ -11,6 +11,7 @@ argv = require('optimist')
   .describe('sphereHost', 'SPHERE.IO API host to connect to')
   .describe('resource', 'Resource which needs to be deleted')
   .describe('deleteHours', 'Number of hours used to select deletable resources (lastModifiedAt)')
+  .describe('resourceId', 'id of a specific resource you want to delete')
   .describe('logLevel', 'log level for file logging')
   .describe('logDir', 'directory to store logs')
   .describe('logSilent', 'use console to print messages')
@@ -53,7 +54,7 @@ ProjectCredentialsConfig.create()
   fetchResources = new FetchResources logger, options
   deleteResources = new DeleteResources logger, options, argv.resource
 
-  fetchResources.run(argv.resource, argv.deleteHours)
+  fetchResources.run(argv.resource, argv.deleteHours, argv.resourceId)
   .then (result) ->
     deleteResources.run(result)
   .catch (err) ->
