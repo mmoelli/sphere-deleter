@@ -1,6 +1,6 @@
 # SPHERE.IO Deleter
 
-![Build Status](https://secure.travis-ci.org/mmoelli/sphere-deleter.png?branch=master)](http://travis-ci.org/mmoelli/sphere-deleter)
+[![Build Status](https://secure.travis-ci.org/mmoelli/sphere-deleter.png?branch=master)](http://travis-ci.org/mmoelli/sphere-deleter)
 
 With this component you can easily delete a bulk of resources on the [SPHERE.IO](https://admin.sphere.io) platform.
 
