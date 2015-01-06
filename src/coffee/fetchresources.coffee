@@ -9,7 +9,7 @@ class FetchResources
   run: (resource, hours, id) ->
     unless id? and id
       new Promise (resolve, reject) =>
-        @client[resource].all().last("#{hours}h").fetch()
+        @client[resource].all().last("#{hours}h").sort("createdAt", false).fetch()
         .then (resources) ->
           console.log "Fetched Resources: %j", resources.body.results
           resolve resources.body.results
