@@ -7,3 +7,8 @@ before_script:
 script:
   - node node_modules/sphere-ipinfo-mashup/lib/run.js --projectKey ${SPHERE_PROJECT_KEY} --clientId ${SPHERE_CLIENT_ID}  --clientSecret ${SPHERE_CLIENT_SECRET} --ipAddress 8.8.8.8
   - node lib/run.js --projectKey ${SPHERE_PROJECT_KEY} --clientId ${SPHERE_CLIENT_ID}  --clientSecret ${SPHERE_CLIENT_SECRET} --resource carts --deleteHours 1
+env:
+  global:
+  - secure: XKZjBe6ueelwAJKLvISSkxhaFw/RpGtYLtlYO+V4vdjmcMOxrGrsQV1Qpp8+MqYRAwyiGRNfb6z4ngHL8ezFJL+NV71TLHCOd6aLddChpqtCTntI2sdviLb/frO7ezn5YckniB3usSbB1FKNpfCFk9+L7CC0XMGli8IJ5tzLLOk=
+  - secure: h9jc8qzFKDMVxe8QpoToQALIK5mvobCJXf7/sqg45R3S4GxvsjrfweepuN23p3+r+VmAanSh6Hcsv/hKwDoEB7NUnJWMHaUOA8xg4GTracm58luM6l92tORqV1OTrs0DL02W3Qvjd6g/BMMD6jDs/AqD+knzfY47SXR0f2wAPhU=
+  - secure: PwJZQVICs/WUVCN4BsPElvzTcJQ5TBgDzVlfuDDdz1vaEr+wKAlkADczHFf8hPX01osZdDPXNs8YdkHwl0OlY8WZ5SVFMC+mmKc7eEPWlqkp0A+jgQTHUshQVKBqLgFLE1TcqOemtPeyKUIrmqlfzcMWGKWMQWpLWGRWhj9LqXY=
