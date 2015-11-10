@@ -13,7 +13,7 @@ General command line options can be seen by simply executing the command `node l
 ```
 node lib/run
 
-  Usage:     --projectKey <project-key> --clientId <client-id> --clientSecret <client-secret> --ipAddress <ip-address>
+  Usage:     --projectKey <project-key> --clientId <client-id> --clientSecret <client-secret>
 
   Options:
 
