@@ -1,8 +1,8 @@
-# SPHERE.IO Deleter
+# commercetools Deleter
 
 [![Build Status](https://secure.travis-ci.org/mmoelli/sphere-deleter.png?branch=master)](http://travis-ci.org/mmoelli/sphere-deleter)
 
-With this component you can easily delete a bulk of resources on the [SPHERE.IO](https://admin.sphere.io) platform.
+With this component you can easily delete a bulk of resources on the [commercetools](https://admin.sphere.io) platform.
 
 ## Getting Started
 Install the module with: `npm install sphere-deleter`
@@ -17,11 +17,11 @@ node lib/run
 
   Options:
 
-    --projectKey <key>              your SPHERE.IO project-key
-    --clientId <id>                 your OAuth client id for the SPHERE.IO API
-    --clientSecret <secret>         your OAuth client secret for the SPHERE.IO API
+    --projectKey <key>              your commercetools project-key
+    --clientId <id>                 your OAuth client id for the commercetools API
+    --clientSecret <secret>         your OAuth client secret for the commercetools API
     --resource <resource>           the type of resource you want delete
-    --deleteHours <hours>           number of hours to go back for deletion (lastModified)  [default: 1]
+    --deleteHours <hours>           number of hours to go back for deletion (lastModifiedAt)  [default: 1]
     --logLevel <level>              specifies log level (error|warn|info|debug|trace)       [default: info]
     --logDir <directory>            specifies log file directory [.]
     --logSilent <boolean>           use console to print messages                           [default: false]
