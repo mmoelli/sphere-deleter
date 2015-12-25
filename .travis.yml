@@ -1,13 +1,14 @@
 language: node_js
 node_js:
   - '0.10'
+  - '0.12'
+  - '4.0'
 before_script:
   - npm install -g grunt-cli
   - ./create_config.sh
 script:
   - grunt build
-  - node node_modules/sphere-ipinfo-mashup/lib/run.js --projectKey ${SPHERE_PROJECT_KEY} --clientId ${SPHERE_CLIENT_ID}  --clientSecret ${SPHERE_CLIENT_SECRET} --ipAddress 8.8.8.8
-  - node lib/run.js --projectKey ${SPHERE_PROJECT_KEY} --clientId ${SPHERE_CLIENT_ID}  --clientSecret ${SPHERE_CLIENT_SECRET} --resource carts --deleteHours 1
+  - node lib/run --projectKey ${SPHERE_PROJECT_KEY} --clientId ${SPHERE_CLIENT_ID}  --clientSecret ${SPHERE_CLIENT_SECRET} --resource carts --deleteHours 1
 env:
   global:
   - secure: XKZjBe6ueelwAJKLvISSkxhaFw/RpGtYLtlYO+V4vdjmcMOxrGrsQV1Qpp8+MqYRAwyiGRNfb6z4ngHL8ezFJL+NV71TLHCOd6aLddChpqtCTntI2sdviLb/frO7ezn5YckniB3usSbB1FKNpfCFk9+L7CC0XMGli8IJ5tzLLOk=
