@@ -4,12 +4,13 @@ FetchResources = require './fetchresources'
 DeleteResources = require './deleteresources'
 
 argv = require('optimist')
-  .usage('Usage: $0 --projectKey key --clientId id --clientSecret secret')
+  .usage('Usage: $ --projectKey key --clientId id --clientSecret secret')
   .describe('projectKey', 'your SPHERE.IO project-key')
   .describe('clientId', 'your OAuth client id for the SPHERE.IO API')
   .describe('clientSecret', 'your OAuth client secret for the SPHERE.IO API')
   .describe('sphereHost', 'SPHERE.IO API host to connect to')
   .describe('resource', 'Resource which needs to be deleted')
+  .describe('allTime', 'Delete all resources without time limitation')
   .describe('deleteHours', 'Number of hours used to select deletable resources (lastModifiedAt)')
   .describe('resourceId', 'id of a specific resource you want to delete')
   .describe('logLevel', 'log level for file logging')
@@ -38,7 +39,7 @@ if argv.logSilent
   logger.bunyanLogger.debug = -> # noop
 
 ProjectCredentialsConfig.create()
-.then (credentials) =>
+.then (credentials) ->
   options =
     config: credentials.enrichCredentials
       project_key: argv.projectKey
@@ -50,11 +51,14 @@ ProjectCredentialsConfig.create()
   if !argv.resource
     logger.error "Please give a resource to delete."
     process.exit(1)
+  else if argv.resourceId and argv.allTime
+    logger.error "Please give either a specific resource ID or the parameter --allTime. Both at the same time are mutually excluded."
+    process.exit(1)
 
   fetchResources = new FetchResources logger, options
   deleteResources = new DeleteResources logger, options, argv.resource
 
-  fetchResources.run(argv.resource, argv.deleteHours, argv.resourceId)
+  fetchResources.run(argv.resource, argv.deleteHours, argv.resourceId, argv.allTime)
   .then (result) ->
     unless result.length
       console.log "Nothing to delete."
