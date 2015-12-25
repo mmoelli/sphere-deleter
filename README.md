@@ -48,7 +48,6 @@ customers
 customerGroups
 discountCodes
 inventoryEntries
-messages
 orders
 payments
 products
