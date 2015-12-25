@@ -27,6 +27,33 @@ node lib/run
     --logSilent <boolean>           use console to print messages                           [default: false]
 ```
 
+### Supported Resources
+The following resources can be selected for deletions
+```
+cartDiscounts
+carts
+categories
+channels
+customObjects
+customers
+customerGroups
+discountCodes
+inventoryEntries
+messages
+orders
+payments
+products
+productDiscounts
+productProjections
+productTypes
+reviews
+shippingMethods
+states
+taxCategories
+types
+zones
+```
+
 ## Tests
 Tests are written using [jasmine](http://pivotal.github.io/jasmine/) (Behavior-Driven Development framework for testing javascript code). Thanks to [jasmine-node](https://github.com/mhevery/jasmine-node), this test framework is also available for Node.js.
 
